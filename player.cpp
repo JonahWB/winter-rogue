@@ -1,12 +1,12 @@
 #include "player.h"
 
-player::player(int setx, int sety) 
+player::player(int setx, int sety) //will set the x and y on creation 
 {
 	x = setx;
 	y = sety;
 }
 
-bool player::IsWalkable(int tileID) {
+bool player::IsWalkable(int tileID) { //takes an item id, and returns true or false depending if the player can walk on the tile
 	switch(tileID){
 		case 0: return true;//floor
 			break;
@@ -20,7 +20,7 @@ bool player::IsWalkable(int tileID) {
 	}
 }
 
-void player::move(std::string input, int** map) {
+void player::move(std::string input, int** map) { //for each direction, it tests if the direction is walkable, then moves into it
 
 	if (input == "up") {
 		if(this->IsWalkable(map[this->x][this->y - 1]))  {

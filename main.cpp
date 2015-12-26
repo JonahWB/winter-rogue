@@ -7,9 +7,11 @@
 //declarations
 std::string PickDirection();
 
+//sets the max and min size of the room
 const int minimum_size = 5;
 const int maximum_size = 20;
 
+//returns the map array. It's a 2d array and currently a single room with walls and a door
 int** generateMapArray(int width, int length)
 {
 	int** array; 
@@ -26,7 +28,7 @@ int** generateMapArray(int width, int length)
 		doorWallLength = width - 2;
 	doorPosition = (rand() % doorWallLength) + 1;
 
-	
+	//create the actual array	
 	array = new int*[width];
 	for(int i = 0; i < width; i++)
 		array[i] = new int[length];
@@ -37,6 +39,8 @@ int** generateMapArray(int width, int length)
 				array[i][j] = 1;
 			} else
 				array[i][j] = 0;
+	
+	//place the door
 	if (doorWall == "East"){
 		array[width - 1][doorPosition] = 2;
 	}
@@ -70,6 +74,7 @@ std::string PickDirection(){
 	}
 }
 
+//returns a random number that fits the min and max room sizes
 int getSize()
 {
 	return (rand() % (maximum_size - minimum_size)) + minimum_size;
@@ -88,6 +93,7 @@ int main()
 
 	player player1(1,1);
 
+	//this is the game loop. It terminates when the player is on a door
 	while(map[player1.getX()][player1.getY()] != 2) {
 		for(int j = 0; j < length; j++) {
 			std::cout << "\n";
@@ -113,6 +119,7 @@ int main()
 
 	}
 
+	//draws the map one more time
 	for(int j = 0; j < length; j++) {
 		std::cout << "\n";
 		for(int i = 0; i < width; i++) {
@@ -131,6 +138,7 @@ int main()
 
 	std::cout << "You Won!\n";
 
+	//deletes the map
 	for(int i = 0; i < width; i++)
 		delete[] map[i];
 	delete[] map;
