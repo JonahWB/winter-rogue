@@ -99,7 +99,7 @@ int main()
 			std::cout << "\n";
 			for(int i = 0; i < width; i++) {
 				if(player1.getX() == i && player1.getY() == j) {
-					std::cout << "i";
+					std::cout << "X";
 				} else if(map[i][j] == 0) {
 					std::cout << " ";
 				} else if(map[i][j] == 1) {//wall
@@ -124,7 +124,7 @@ int main()
 		std::cout << "\n";
 		for(int i = 0; i < width; i++) {
 			if(player1.getX() == i && player1.getY() == j) {
-				std::cout << "i";
+				std::cout << "X";
 			} else if(map[i][j] == 0) {
 				std::cout << " ";
 			} else if(map[i][j] == 1) {//wall
