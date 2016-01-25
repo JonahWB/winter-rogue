@@ -75,7 +75,7 @@ std::string PickDirection(){
 }
 
 //returns a random number that fits the min and max room sizes
-int getSize()
+int setSize()
 {
 	return (rand() % (maximum_size - minimum_size)) + minimum_size;
 }
@@ -84,8 +84,8 @@ int main()
 {
         srand(time(NULL));
 
-	int width = getSize();
-	int length = getSize();
+	int width = setSize();
+	int length = setSize();
 
 	std::string input;
 

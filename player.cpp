@@ -22,22 +22,22 @@ bool player::IsWalkable(int tileID) { //takes an item id, and returns true or fa
 
 void player::move(std::string input, int** map) { //for each direction, it tests if the direction is walkable, then moves into it
 
-	if (input == "up") {
+	if (input == "up" | input == "u") {
 		if(this->IsWalkable(map[this->x][this->y - 1]))  {
 			this->y--;
 		} else { std::cout << "\nthat's a wall\n"; }
 
-	} else if (input == "down") {
+	} else if (input == "down" | input == "d") {
 		if(this->IsWalkable(map[this->x][this->y + 1])) {
 			this->y++;
 		} else { std::cout << "\nthat's a wall\n"; }
 
-	} else if (input == "right") {
+	} else if (input == "right" | input == "r") {
 		if(this->IsWalkable(map[this->x + 1][this->y])) {
 			this->x++;
 		} else { std::cout << "\nthat's a wall\n"; }
 
-	} else if (input == "left") {
+	} else if (input == "left" | input == "l") {
 		if(this->IsWalkable(map[this->x - 1][this->y])) {
 			this->x--;
 		} else { std::cout << "\nthat's a wall\n"; }
