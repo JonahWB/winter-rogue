@@ -2,3 +2,5 @@ rw
 CMakeCache.txt
 CMakeFiles
 build
+temp*
+
